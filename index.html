@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
 </head>
 <body>
 
@@ -19,8 +20,8 @@
                 <ul>
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#calc">Calculadora</a></li>
-                    <li><a href="#cult">Cultivos</a></li>
-                    <li><a href="#proc">Processo</a></li>
+                    <li><a href="cultivos.html">Cultivos</a></li>
+                    <li><a href="processo.html">Processo</a></li>
                     <li><a href="#impact">Impacto Ambiental</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                 </ul>
@@ -31,12 +32,169 @@
             <a href="sobrenos.html" class="bre"> Sobre o Projeto</a>
         </div>
     </header>
-
+    
     <main>
-        gvfgred
+        <div class="lambaio">
+        <img src="fotos/lambaio.png" alt="" class="wargh">
+        </div>
+        <div class="mae">
+            <div class="cardd">
+                <img src="" alt="">
+                <h2>Sustentabilidade</h2>
+                <p class="texto">Reduza impactos ambientais e aproveite melhor os recursos do campo.</p>
+            </div>
+
+            <div class="cardd">
+                <img src="" alt="">
+                <h2>Energia Renovável</h2>
+                <p class="texto">Transfome resíduos em energia limpa e diminua a dependência de fósseis.</p>
+            </div>
+
+            <div class="cardd">
+                <img src="" alt="">
+                <h2>Cálculos Inteligentes</h2>
+                <p class="texto">Estimativas precisas com base em dados reais da sua produção agrícola.</p>
+            </div>
+
+            <div class="cardd">
+                <img src="" alt="">
+                <h2>Resultados Claros</h2>
+                <p class="texto">Visualize o potencial energético e o impacto positivo das suas escolhas.</p>
+            </div>
+
+            <div class="cardd">
+                <img src="" alt="">
+                <h2>Ciclo Sustentável</h2>
+                <p class="texto">Feche o ciclo:produção, resíduo, energia, e o novo crescimento.</p>
+            </div>
+        </div>
+
+        <div class="calc-container">
+
+    <div class="calc">
+
+        <div class="calc-text">
+            <img src="fotos/calc.png" alt="Calculadora">
+            <p>Calcule agora o potencial energético dos seus resíduos agrícolas</p>
+        </div>
+
+        <a href="#calc" class="calc-button">
+            Acessar Calculadora
+        </a>
+
+    </div>
+
+</div>
+
+<section class="calculadora" id="calc">
+
+    <div class="formulario">
+
+        <h2>Calculadora de Biomassa</h2>
+
+        <input type="number" id="area" placeholder="Área (ha)">
+
+        <input type="number" id="residuo" placeholder="Resíduo por hectare (t)">
+
+        <select id="cultivo">
+            <option value="1.5">Milho</option>
+            <option value="1.2">Soja</option>
+            <option value="1.8">Cana</option>
+            <option value="1.1">Trigo</option>
+        </select>
+
+        <button onclick="calcularBiomassa()">
+            Calcular
+        </button>
+
+    </div>
+
+    <div class="resultado" id="resultado">
+
+        <div class="card">
+            <h3> Resíduos Gerados</h3>
+            <p id="residuosGerados">0 t</p>
+        </div>
+
+        <div class="card">
+            <h3> Energia Produzida</h3>
+            <p id="energiaGerada">0 kWh</p>
+        </div>
+
+        <div class="card">
+            <h3> Casas Abastecidas</h3>
+            <p id="casasAbastecidas">0</p>
+        </div>
+
+        <div class="card">
+            <h3> CO₂ Evitado</h3>
+            <p id="co2Evitado">0 t</p>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+function calcularBiomassa(){
+
+    let area =
+        Number(document.getElementById("area").value);
+
+    let residuo =
+        Number(document.getElementById("residuo").value);
+
+    let cultivo =
+        Number(document.getElementById("cultivo").value);
+
+    if(area <= 0 || residuo <= 0){
+
+        alert("Preencha os campos corretamente.");
+
+        return;
+    }
+
+    let residuosGerados =
+        area * residuo * cultivo;
+
+    let energiaGerada =
+        residuosGerados * 550;
+
+    let casasAbastecidas =
+        energiaGerada / 3500;
+
+    let co2Evitado =
+        residuosGerados * 0.8;
+
+    document.getElementById("residuosGerados")
+        .innerText =
+        residuosGerados.toFixed(0) + " t";
+
+    document.getElementById("energiaGerada")
+        .innerText =
+        energiaGerada.toLocaleString("pt-BR") + " kWh";
+
+    document.getElementById("casasAbastecidas")
+        .innerText =
+        casasAbastecidas.toFixed(0);
+
+    document.getElementById("co2Evitado")
+        .innerText =
+        co2Evitado.toFixed(0) + " t";
+
+}
+
+</script>
+
     </main>
+    
     <footer>
-        fvrfv
-    </footer>
+        <div class="fotos"> 
+            <img src="fotos/ccm.png" alt="" class="imgfooter"> 
+            <img src="fotos/pr.png" alt="" class="imgfooter">
+            <img src="fotos/garotos.PNG" alt="" class="imgfooter" id="programa"> 
+        </div>                                                  
+     </footer>                                                                         
 </body>
 </html>
